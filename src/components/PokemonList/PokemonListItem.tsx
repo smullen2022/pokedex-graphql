@@ -44,15 +44,15 @@ const useStyles = createUseStyles(
       width: '100%',
       justifyContent: 'space-between',
       borderRadius: '5px',
-      border: '2px solid #fff',
+      border: '2px solid #1f221f',
       margin: '0 5px 10px 5px',
+      boxShadow: '2px 2px 4px rgb(0 0 0 / 30%)',
+      background: '#58585a',
+      overflow: 'hidden',
       transition: 'all 200ms ease',
+      transformOrigin: 'top',
       '&:hover': {
-        margin: '-5px 0 5px 0',
-        width: 'calc(100% + 10px)',
-      },
-      '&:hover $img': {        
-        width: '130px',
+        transform: 'scale(1.02, 1.1)',
       },
       '& h3': {
         marginTop: '0', 
@@ -62,6 +62,7 @@ const useStyles = createUseStyles(
     },
     img: {
       width: '120px',
+      height: '120px',
       transition: 'all 200ms ease',
     },
     container: {

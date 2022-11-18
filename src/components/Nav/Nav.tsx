@@ -49,7 +49,7 @@ const useStyles = createUseStyles(
   {
     root: {
       zIndex: 100,
-      background: '#131924',
+      background: '#1f221f',
       position: 'fixed',
       left: 0,
       top: 0,

@@ -41,7 +41,6 @@ const useStyles = createUseStyles(
       height: '56px',
       textDecoration: 'none',
       overflow: 'hidden',
-      background: '#131924',
       '&:hover': {
         filter: 'brightness(120%)',
       },
@@ -53,7 +52,7 @@ const useStyles = createUseStyles(
       marginLeft: '18px',
     },
     active: {
-      background: '#171E2b',
+      background: '#58585a',
       '&:hover': {
         filter: 'brightness(110%)',
       },

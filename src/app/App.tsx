@@ -31,7 +31,7 @@ function App() {
 const useStyles = createUseStyles(
   {
     root: {
-      background: '#171E2b',
+      background: '#ee4035',
       minHeight: '100vh',
       minWidth: '100vw',
       height: '100%',

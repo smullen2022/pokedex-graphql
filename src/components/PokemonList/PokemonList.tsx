@@ -12,16 +12,21 @@ export const PokemonList = () => {
     width: '100%',
     '& .MuiInputBase-root': {
       overflow: 'hidden',
+      border: '2px solid #21201c',
     },
     '& input': {
       backgroundColor: '#fff',
-    }          
+    },
+    '& fieldset': {
+      border: '0',
+      outline: '0',
+    }         
   };
 
   useEffect(() => setPokemonList(pokemons), [pokemons]);
 
   const filterPokemons = (value: string) => {
-    const newList = pokemons.filter(({ name }) => name.toLowerCase().startsWith(value.toLowerCase()));
+    const newList = pokemons.filter(({ name }) => name.toLowerCase().includes(value.toLowerCase()));
     setPokemonList(newList);
   }
 
