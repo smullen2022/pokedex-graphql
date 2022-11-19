@@ -33,18 +33,20 @@ export const PokemonList = () => {
   return (
     <>
       <img className={classes.banner} src="/pokebanner.jpg" />
-      <div className={classes.root}> 
-        <div className={classes.search}>
-          <TextField 
-            id="outlined-search" 
-            placeholder="Refine list by name" 
-            type="search"
-            sx={inputStyle}
-            onChange={(e) => filterPokemons(e.target.value)}
-          />
-        </div>        
-        {loading && <div>Loading...</div>}
-        {pokemonList?.map((pkmn) => <PokemonListItem pokemon={pkmn} key={pkmn.id} />)}      
+      <div className={classes.root}>
+        <div className={classes.listContainer}>
+          <div className={classes.search}>
+            <TextField 
+              id="outlined-search" 
+              placeholder="Refine list by name" 
+              type="search"
+              sx={inputStyle}
+              onChange={(e) => filterPokemons(e.target.value)}
+            />
+          </div>        
+          {loading && <div>Loading...</div>}
+          {pokemonList?.map((pkmn) => <PokemonListItem pokemon={pkmn} key={pkmn.id} />)}
+        </div>     
       </div>
     </>
   ); 
@@ -67,9 +69,14 @@ const useStyles = createUseStyles(
       flexFlow: 'column wrap',
       padding: '2rem',
       marginTop: '200px',
+      alignItems: 'center',
     },
     search: {
       marginBottom: '2rem',
+    },
+    listContainer: {
+      maxWidth: '1000px',
+      width: '100%',
     }
   },
   { name: 'PokemonList' }

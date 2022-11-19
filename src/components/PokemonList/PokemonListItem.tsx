@@ -40,12 +40,11 @@ export const PokemonListItem: React.FC<PokemonListItemProps> = ({ pokemon }) => 
 
 const useStyles = createUseStyles(
   {    
-    root: {      
-      width: '100%',
+    root: {
       justifyContent: 'space-between',
       borderRadius: '5px',
       border: '2px solid #1f221f',
-      margin: '0 5px 10px 5px',
+      margin: '0 0px 10px 0px',
       boxShadow: '2px 2px 4px rgb(0 0 0 / 30%)',
       background: '#58585a',
       overflow: 'hidden',
