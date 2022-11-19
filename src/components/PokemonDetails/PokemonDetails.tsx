@@ -1,29 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import { createUseStyles } from 'react-jss';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useGetPokemonDetails } from '../../hooks/useGetPokemons';
-import { Separate } from '../common/Separate';
 
-export const PokemonDetails = () => {
+interface PokemonDetailsProps {
+  name?: string;
+  id?: string;
+}
+
+export const PokemonDetails: React.FC<PokemonDetailsProps> = ({ name, id }) => {
     const navigate = useNavigate();
     const classes = useStyles();
-    const { name, id } = useParams();
-    const { pokemon, loading } = useGetPokemonDetails(id, name);    
+    const { pokemon, loading } = useGetPokemonDetails(id, name);
+    const shouldOpen = !!name && !!id && !loading;
+    const weakTo = pokemon?.weaknesses?.join(', ');
+    const resists = pokemon?.resistant?.join(', ');
 
     const closeModal = () => {
-      navigate('/pokemon');
-    };
-
-    if (loading) {
-      return <></>;
-    }
+      navigate('/pokemon');     
+    };    
     
-    return(      
+    return (      
       <Dialog
-        open
+        open={shouldOpen}
         onClose={closeModal}
-      >        
+      >   
         <DialogTitle className={classes.title}>{pokemon.name}</DialogTitle>
           <DialogContent className={classes.content}>
             <img className={classes.img} src={pokemon.image} />
@@ -38,11 +40,11 @@ export const PokemonDetails = () => {
               </div>
               <div className={classes.detail}>
                 <div className={classes.label}>Weaknesses:</div>
-                <Separate content={pokemon.weaknesses} />
+                {weakTo}
               </div>
               <div className={classes.detail}>
                 <div className={classes.label}>Resistant to:</div>
-                <Separate content={pokemon.resistant} />
+                {resists}
               </div>  
             </div>                  
           </DialogContent>                 

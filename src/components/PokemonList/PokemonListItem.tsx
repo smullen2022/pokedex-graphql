@@ -3,7 +3,6 @@ import { createUseStyles } from 'react-jss';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Button } from '@mui/material';
 import { BasePokemon } from '../../hooks/useGetPokemons';
-import { Separate } from '../common/Separate';
 
 interface PokemonListItemProps {
   pokemon: BasePokemon;
@@ -12,6 +11,7 @@ interface PokemonListItemProps {
 export const PokemonListItem: React.FC<PokemonListItemProps> = ({ pokemon }) => {
   const location = useLocation();
   const classes = useStyles();
+  const pokemonTypes = pokemon?.types?.join(', ');
   const buttonStyles = {
     width: '100%',
     backgroundColor: '#fff',
@@ -27,7 +27,7 @@ export const PokemonListItem: React.FC<PokemonListItemProps> = ({ pokemon }) => 
         <div className={classes.content}>
           <h3>#{pokemon.number} {pokemon.name}</h3>        
           <span className={classes.label}>Types: </span>
-          <Separate content={pokemon.types} />
+          {pokemonTypes}
         </div>
       </div>   
       <Link className={classes.link} to={`/pokemon/${pokemon.name}/${pokemon.id}`} state={{ background: location }}>   

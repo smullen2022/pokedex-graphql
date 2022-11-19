@@ -1,13 +1,16 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import { createUseStyles } from 'react-jss';
-import { PokemonList } from '../components';
+import { PokemonDetails, PokemonList } from '../components';
 
 export const ListPage = () => {
-  const classes = useStyles();
+  const classes = useStyles();  
+  const { name, id } = useParams();
 
   return (
     <div className={classes.root}>
       <PokemonList />
+      <PokemonDetails name={name} id={id} />
     </div>
   );
 };
