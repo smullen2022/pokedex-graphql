@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createUseStyles } from 'react-jss';
 import { BasePokemon, useGetPokemons } from '../../hooks/useGetPokemons';
 import TextField from '@mui/material/TextField';
+import CircularProgress from '@mui/material/CircularProgress';
 import { PokemonListItem } from './PokemonListItem';
 
 export const PokemonList = () => {
@@ -22,6 +23,10 @@ export const PokemonList = () => {
       outline: '0',
     }         
   };
+  const progressStyles = { 
+    width: '200px !important',
+    height: '200px !important',
+  }
 
   useEffect(() => setPokemonList(pokemons), [pokemons]);
 
@@ -44,7 +49,11 @@ export const PokemonList = () => {
               onChange={(e) => filterPokemons(e.target.value)}
             />
           </div>        
-          {loading && <div>Loading...</div>}
+          {loading && (
+            <div className={classes.loading}>
+              <CircularProgress sx={progressStyles} />
+            </div>
+          )}
           {pokemonList?.map((pkmn) => <PokemonListItem pokemon={pkmn} key={pkmn.id} />)}
         </div>     
       </div>
@@ -84,6 +93,14 @@ const useStyles = createUseStyles(
       boxShadow: '0px 10px 8px rgb(0 0 0 / 50%)',
       padding: '2rem',
       minHeight: 'calc(100vh - 248px)',      
+    },
+    loading: {
+      display: 'flex',
+      justifyContent: 'center',
+      margin: '4rem 0',
+      '& circle': {
+        color: '#fecb03',
+      }
     }
   },
   { name: 'PokemonList' }
