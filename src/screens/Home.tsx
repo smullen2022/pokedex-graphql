@@ -27,6 +27,7 @@ const useStyles = createUseStyles(
     root: {
       minWidth: '100%',
       minHeight: '100%',
+      background: 'rgb(238, 64, 53)',
       padding: '24px 20%',
       boxSizing: 'border-box',
       '& p': {
