@@ -57,14 +57,19 @@ const useStyles = createUseStyles(
       width: '100%',
       objectFit: 'cover',
       objectPosition: 'top',
+      position: 'fixed',
+      zIndex: '1',
+      top: '0',
+      boxShadow: '2px 2px 4px rgb(0 0 0 / 30%)',
     },
     root: {
       display: 'flex',
       flexFlow: 'column wrap',
-      padding: '32px',
+      padding: '2rem',
+      marginTop: '200px',
     },
     search: {
-      marginBottom: '32px',
+      marginBottom: '2rem',
     }
   },
   { name: 'PokemonList' }

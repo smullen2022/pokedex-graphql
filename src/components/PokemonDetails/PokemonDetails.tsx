@@ -46,7 +46,7 @@ export const PokemonDetails = () => {
               </div>  
             </div>                  
           </DialogContent>                 
-        <DialogActions>
+        <DialogActions className={classes.footer}>
           <Button onClick={closeModal}>Close</Button>          
         </DialogActions>
       </Dialog>
@@ -60,7 +60,8 @@ const useStyles = createUseStyles(
       flexFlow: 'row wrap',
       '& div': {
         color: '#000',
-      }      
+      },
+      marginTop: '2rem',      
     },
     img: {
       width: 'calc(50% - 20px)',
@@ -73,10 +74,16 @@ const useStyles = createUseStyles(
       paddingBottom: '10px',
     },
     title: {
-      color: '#000',
+      color: '#fff',
+      background: '#3168ad',
     },
     label: {
       fontWeight: '900',
+    },
+    footer: {
+      margin: '1rem 1rem 0 1rem',
+      padding: '1rem 0',
+      borderTop: '2px solid #1f221f',
     },
     [`@media (max-width: 768px)`]: {
       content: {

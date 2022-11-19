@@ -15,7 +15,7 @@ export const ListPage = () => {
 const useStyles = createUseStyles(
   {
     root: {
-      width: '100%',
+      width: 'calc(100% - 2rem)',
       height: '100%',
     },
   },
