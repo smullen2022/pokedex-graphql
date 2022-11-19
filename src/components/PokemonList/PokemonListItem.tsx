@@ -50,7 +50,6 @@ const useStyles = createUseStyles(
       background: '#58585a',
       overflow: 'hidden',
       transition: 'all 200ms ease',
-      transformOrigin: 'top',
       '&:hover': {
         transform: 'scale(1.02, 1.1)',
       },
