@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import { createUseStyles } from 'react-jss';
 import { useNavigate } from 'react-router-dom';
-import { useGetPokemonDetails } from '../../hooks/useGetPokemons';
+import { Pokemon, useGetPokemonDetails } from '../../hooks/useGetPokemons';
 
 interface PokemonDetailsProps {
   name?: string;
@@ -13,9 +13,20 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = ({ name, id }) => {
     const navigate = useNavigate();
     const classes = useStyles();
     const { pokemon, loading } = useGetPokemonDetails(id, name);
+    const [newPokemon, setNewPokemon] = useState<Pokemon>();
     const shouldOpen = !!(name && id) && !loading;
-    const weakTo = pokemon.weaknesses?.join(', ');
-    const resists = pokemon.resistant?.join(', ');
+    const weakTo = newPokemon?.weaknesses?.join(', ');
+    const resists = newPokemon?.resistant?.join(', ');
+
+    // we're mainly doing this to ensure a smooth closing transition,
+    // keeping the pokemon data present in the component state at times when it 
+    // would otherwise be an empty object so that the fadeout closing dialog
+    // animation looks nice when it runs
+    useEffect(() => {
+      if (pokemon && pokemon.name) {
+        setNewPokemon(pokemon);
+      }
+    }, [pokemon]);
 
     const closeModal = () => {
       navigate('/pokemon');     
@@ -26,17 +37,17 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = ({ name, id }) => {
         open={shouldOpen}
         onClose={closeModal}
       >   
-        <DialogTitle className={classes.title}>{pokemon.name}</DialogTitle>
+        <DialogTitle className={classes.title}>{newPokemon?.name}</DialogTitle>
           <DialogContent className={classes.content}>
-            <img className={classes.img} src={pokemon.image} />
+            <img className={classes.img} src={newPokemon?.image} />
             <div className={classes.detailsContainer}>
               <div className={classes.detail}>
                 <div className={classes.label}>Max HP:</div>
-                {pokemon.maxHP}
+                {newPokemon?.maxHP}
               </div>
               <div className={classes.detail}>
                 <div className={classes.label}>Classification:</div>
-                {pokemon.classification}
+                {newPokemon?.classification}
               </div>
               <div className={classes.detail}>
                 <div className={classes.label}>Weaknesses:</div>
