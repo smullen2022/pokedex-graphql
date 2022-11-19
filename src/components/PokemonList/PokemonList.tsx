@@ -65,7 +65,7 @@ const useStyles = createUseStyles(
   {
     banner: {
       height: '184px',
-      width: '100%',
+      width: 'calc(100% - 81px)',
       objectFit: 'cover',
       objectPosition: 'top',
       position: 'fixed',
