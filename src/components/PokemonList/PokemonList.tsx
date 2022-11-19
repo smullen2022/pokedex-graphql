@@ -55,7 +55,7 @@ export const PokemonList = () => {
 const useStyles = createUseStyles(
   {
     banner: {
-      height: '200px',
+      height: '184px',
       width: '100%',
       objectFit: 'cover',
       objectPosition: 'top',
@@ -67,7 +67,7 @@ const useStyles = createUseStyles(
     root: {
       display: 'flex',
       flexFlow: 'column wrap',      
-      marginTop: '200px',
+      marginTop: '184px',
       alignItems: 'center',
       backgroundImage: 'url(/pokebg.jpg)',
       backgroundAttachment: 'fixed',
@@ -83,7 +83,7 @@ const useStyles = createUseStyles(
       background: 'rgba(238, 64, 53, .9)',
       boxShadow: '0px 10px 8px rgb(0 0 0 / 50%)',
       padding: '2rem',
-      minHeight: 'calc(100vh - 264px)',      
+      minHeight: 'calc(100vh - 248px)',      
     }
   },
   { name: 'PokemonList' }
