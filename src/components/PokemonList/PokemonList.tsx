@@ -66,17 +66,24 @@ const useStyles = createUseStyles(
     },
     root: {
       display: 'flex',
-      flexFlow: 'column wrap',
-      padding: '2rem',
+      flexFlow: 'column wrap',      
       marginTop: '200px',
       alignItems: 'center',
+      backgroundImage: 'url(/pokebg.jpg)',
+      backgroundAttachment: 'fixed',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
     },
     search: {
       marginBottom: '2rem',
     },
     listContainer: {
       maxWidth: '1000px',
-      width: '100%',
+      width: 'calc(100% - 4rem)',
+      background: 'rgba(238, 64, 53, .9)',
+      boxShadow: '0px 10px 8px rgb(0 0 0 / 50%)',
+      padding: '2rem',
+      minHeight: 'calc(100vh - 264px)',      
     }
   },
   { name: 'PokemonList' }
