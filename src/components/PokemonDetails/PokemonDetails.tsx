@@ -13,9 +13,9 @@ export const PokemonDetails: React.FC<PokemonDetailsProps> = ({ name, id }) => {
     const navigate = useNavigate();
     const classes = useStyles();
     const { pokemon, loading } = useGetPokemonDetails(id, name);
-    const shouldOpen = !!name && !!id && !loading;
-    const weakTo = pokemon?.weaknesses?.join(', ');
-    const resists = pokemon?.resistant?.join(', ');
+    const shouldOpen = !!(name && id) && !loading;
+    const weakTo = pokemon.weaknesses?.join(', ');
+    const resists = pokemon.resistant?.join(', ');
 
     const closeModal = () => {
       navigate('/pokemon');     

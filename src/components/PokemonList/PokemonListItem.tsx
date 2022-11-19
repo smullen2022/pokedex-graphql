@@ -11,7 +11,7 @@ interface PokemonListItemProps {
 export const PokemonListItem: React.FC<PokemonListItemProps> = ({ pokemon }) => {
   const location = useLocation();
   const classes = useStyles();
-  const pokemonTypes = pokemon?.types?.join(', ');
+  const pokemonTypes = pokemon.types?.join(', ');
   const buttonStyles = {
     width: '100%',
     backgroundColor: '#fff',
